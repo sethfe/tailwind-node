@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+
+    <!--FONT AWESOME ICONS-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--FavIcon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body
+    class="min-h-screen bg-cover bg-center bg-no-repeat"
+    style="background-image: url('images/body_bg.png')"
+  >
+    <div class="max-w-7xl mx-auto">
+        <header class="bg-blue-500 w-full">
+             <div class="mx-auto flex flex-row justify-between items-center p-4 px-4 md:px-8">
+                <img
+            src="images/logo-pokemon.png"
+            alt="Pokemon Logo"
+            class="w-[79px] h-[45px] flex justify-start"
+          />
+
+                <a id="hamburgerBtn" class="w-11 h-11 flex justify-center rounded-full hover:bg-blue-700 sm:hidden" href="#">
+                    <img class="w-6" src="images/hamburger.svg">
+                </a>
+             </div>
+        </header>
+
+        <nav id="primaryNav" class="bg-blue-700 hidden sm:px-2 sm:block shadow-lg">
+            <ul class="flex flex-col sm:flex-row sm:gap-1">
+                <li>
+                    <a href="#" class="block py-3 px-4 text-white font-semibold hover:bg-yellow-400 hover:text-red-600 transition-all duration-300 rounded-sm">Pokemon Games</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-3 px-4 text-white font-semibold hover:bg-yellow-400 hover:text-red-600 transition-all duration-300 rounded-sm">Pokemon TCG</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-3 px-4 text-white font-semibold hover:bg-yellow-400 hover:text-red-600 transition-all duration-300 rounded-sm">Pokemon Shop</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-3 px-4 text-white font-semibold hover:bg-yellow-400 hover:text-red-600 transition-all duration-300 rounded-sm">Pokemon Support</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="p-4 md:p-8">
+            <h1 class="text-4xl font-bold text-center text-white mb-8 drop-shadow-lg">Pokémon Games Collection</h1>
+            
+            <!-- Games Grid Container -->
+            <div id="gamesHere" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+                <!-- Game cards will be dynamically inserted here -->
+            </div>
+
+            <!-- Modal Dialog -->
+            <dialog id="mydialog" class="w-5/6 max-w-4xl rounded-xl backdrop:backdrop-blur-sm backdrop:bg-black/50 m-auto shadow-2xl border-4 border-yellow-400">
+                <div class="bg-gradient-to-r from-red-600 to-blue-600 justify-between flex px-4 py-3 text-2xl rounded-t-lg">
+                    <h2 id="myTitle" class="text-white font-bold drop-shadow-lg">Sample Title</h2>
+                    <button id="closeBtn" class="cursor-pointer text-white hover:text-yellow-300 font-bold text-3xl transition-colors duration-200">×</button>
+                </div>
+                
+                <div class="p-6 bg-gradient-to-br from-slate-50 to-slate-100">
+                    <p id="myDescription" class="mb-4 text-gray-800 leading-relaxed text-base bg-white p-4 rounded-lg shadow-sm"></p>
+                    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                        <img id="myImage" class="w-full rounded-lg shadow-lg border-2 border-gray-200" alt="Game Cover">
+                        <div class="space-y-3">
+                            <p id="myRegion" class="text-base text-gray-800 bg-red-100 p-2 rounded-md border-l-4 border-red-500"></p>
+                            <p id="myStarters" class="text-base text-gray-800 bg-green-100 p-2 rounded-md border-l-4 border-green-500"></p>
+                            <p id="myLegendaries" class="text-base text-gray-800 bg-yellow-100 p-2 rounded-md border-l-4 border-yellow-500"></p>
+                            <p id="myPlatform" class="text-base text-gray-800 bg-blue-100 p-2 rounded-md border-l-4 border-blue-500"></p>
+                            <p id="myYear" class="text-base text-gray-800 bg-purple-100 p-2 rounded-md border-l-4 border-purple-500"></p>
+                        </div>
+                    </section>
+                </div>
+            </dialog>
+        </main> 
+
+
+
+
+        <!--footer start-->
+      <footer class="bg-[#f5f5f5] py-4">
+        <div class="max-w-7xl mx-auto text-center">
+          <p class="text-sm text-[#041E42]">
+            © 2023 SETH ELLIOTT &bull; UVU DWDD-2620 &bull; Not affiliated with
+            Pokemon &bull; For school learning/use only.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="js/scripts.js"></script>
+</body>
+</html>
