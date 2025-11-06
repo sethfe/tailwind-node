@@ -83,5 +83,58 @@ myDialog.addEventListener('click', (e) => {
     }
 });
 
+// Responsive navigation toggle (small screens)
+const hamburgerBtn = document.querySelector('#hamburgerBtn');
+const primaryNav = document.querySelector('#primaryNav');
+
+if (hamburgerBtn && primaryNav) {
+    hamburgerBtn.addEventListener('click', (e) => {
+        // prevent default in case the element was a link previously
+        e.preventDefault?.();
+
+        const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+        const willOpen = !isExpanded;
+
+        // Update button state
+        hamburgerBtn.setAttribute('aria-expanded', String(willOpen));
+
+        // Show/hide nav and update aria-hidden
+        if (willOpen) {
+            primaryNav.classList.remove('hidden');
+            primaryNav.setAttribute('aria-hidden', 'false');
+        } else {
+            primaryNav.classList.add('hidden');
+            primaryNav.setAttribute('aria-hidden', 'true');
+        }
+    });
+
+    // Close nav after clicking a link on small screens
+    primaryNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 640) {
+                primaryNav.classList.add('hidden');
+                primaryNav.setAttribute('aria-hidden', 'true');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // Keep nav state in sync when resizing the window
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 640) {
+            // On larger screens, ensure nav is visible (Tailwind's sm:block should handle it,
+            // but remove the hidden class for consistency) and mark aria accordingly.
+            primaryNav.classList.remove('hidden');
+            primaryNav.setAttribute('aria-hidden', 'false');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        } else {
+            // On small screens default to hidden
+            primaryNav.classList.add('hidden');
+            primaryNav.setAttribute('aria-hidden', 'true');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
 // Initialize the page
 displayItems(pokeData);
